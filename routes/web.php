@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use \App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,7 @@ use Inertia\Inertia;
 |
 */
 
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -23,7 +25,14 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
-
+// call controller
+Route::get('/',[HomeController::class,'index'])->name('home');
+// Route-> Controller->View
+Route::get('/test',[HomeController::class,'test'])->name('test');
+// Route with parameters
+Route::get('/param/{id}/{number}',[HomeController::class,'param'])->name('param');
+// Route with post
+Route::post('/save',[HomeController::class,'save'])->name('save');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
