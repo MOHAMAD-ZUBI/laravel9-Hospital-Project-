@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPanel\Home\MyController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -27,7 +28,7 @@ Route::get('/', function () {
 });
 // call controller
 Route::get('/',[HomeController::class,'index'])->name('home');
-// Route-> Controller->View
+// Route-> MyController->View
 Route::get('/test',[HomeController::class,'test'])->name('test');
 // Route with parameters
 Route::get('/param/{id}/{number}',[HomeController::class,'param'])->name('param');
@@ -42,3 +43,5 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+// ***** admin panel ***** //
+Route::get('/admin', [MyController::class,'index'])->name('admin');
