@@ -19,10 +19,17 @@
 </head>
 
 
+@section('navbar')
+    @include("admin.navbar")
+@show
 @section('sidebar')
     @include("admin.sidebar")
 @show
-@include("admin.header")
+
+@section('footer')
+    @include("admin.footer")
+@show
+
 @yield('content')
 
 <body>
