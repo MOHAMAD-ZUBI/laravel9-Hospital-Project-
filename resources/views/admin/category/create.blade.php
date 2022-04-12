@@ -12,118 +12,69 @@
                 <div class="col-md-12">
                     <h2>Add Category</h2>
                     <div class="col-md-6">
-                        <h3>Basic Form Examples</h3>
-                        <form role="form">
+                        <h3>Category Elements</h3>
+                        <form role="form" action="/admin/category/store" method="post">
+                            @csrf
+
+
+
                             <div class="form-group">
-                                <label>Text Input</label>
-                                <input class="form-control">
+                                <label for="Text Input">Title</label>
+                                <input type="text" class="form-control" name="title" placeholder="Title">
                                 <p class="help-block">Help text here.</p>
                             </div>
+
+
+
+
+
                             <div class="form-group">
-                                <label>Text Input with Placeholder</label>
-                                <input class="form-control" placeholder="PLease Enter Keyword">
+                                <label for="Text Input">Keywords</label>
+                                <input type="text" class="form-control" name="keywords" placeholder="keywords">
                             </div>
+
+
+
                             <div class="form-group">
                                 <label>Just A Label Control</label>
                                 <p class="form-control-static">info@yourdomain.com</p>
                             </div>
-                            <div class="form-group">
-                                <label>File input</label>
-                                <input type="file">
-                            </div>
-                            <div class="form-group">
-                                <label>Text area</label>
-                                <textarea class="form-control" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Checkboxes</label>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">Checkbox Example One
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">Checkbox Example Two
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">Checkbox Example Three
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Inline Checkboxes Examples</label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox"> One
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox"> Two
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox"> Three
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label>Radio Button Examples</label>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">Radio Example One
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Radio Example Two
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Radio Example Three
-                                    </label>
-                                </div>
-                            </div>
+
+
+
+
 
                             <div class="form-group">
-                                <label>Select Example</label>
-                                <select class="form-control">
-                                    <option>One Vale</option>
-                                    <option>Two Vale</option>
-                                    <option>Three Vale</option>
-                                    <option>Four Vale</option>
+                                <label for="exampleInputFile">Image</label>
+
+                                <input type="file" class="custom-file-input" name="image">
+                                <label class="custom-file-label" for="exampleInputFile">Choose image file</label>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="Text Input">Description</label>
+                                <input type="text" class="form-control" name="description" placeholder="Description">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select class="form-control" name="status">
+                                    <option>Enable</option>
+                                    <option>Disable</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>Multiple Select Example</label>
-                                <select multiple="" class="form-control">
-                                    <option>One Vale</option>
-                                    <option>Two Vale</option>
-                                    <option>Three Vale</option>
-                                    <option>Four Vale</option>
-                                </select>
+
+
+                            <div class="footer">
+                                <button type="submit" class="btn btn-default">Save</button>
+                                <button type="reset" class="btn btn-primary">Reset Button</button>
+
                             </div>
-                            <button type="submit" class="btn btn-default">Submit Button</button>
-                            <button type="reset" class="btn btn-primary">Reset Button</button>
+
 
                         </form>
-                        <br>
-                        <h3>With radio &amp; checkboxes</h3>
-                        <form>
-
-                            <div class="form-group input-group">
-      <span class="input-group-addon">
-        <input type="checkbox">
-      </span>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="form-group input-group">
-      <span class="input-group-addon">
-        <input type="radio">
-      </span>
-                                <input type="text" class="form-control">
-                            </div>
-                        </form>
-
 
                     </div>
 
