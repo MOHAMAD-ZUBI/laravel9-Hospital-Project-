@@ -59,17 +59,25 @@
                             </li>
                         </ul>
                     </div>
+                    @if(Route::has('login'))
+
+                        @auth
+                            <h1>logged in!</h1>
+                    @else
+
                     <div class="quote_btn-container">
-                        <a href="">
+                        <a href="{{route('login')}}">
                             <i class="fa fa-user" aria-hidden="true"></i>
                             <span>
                     Login
                   </span>
                         </a>
-                        <a href="">
+                        <a href="{{route('register')}}">
                             <i class="fa fa-user" aria-hidden="true"></i>
                             <span>
                     Sign Up
+                                @endauth
+                                @endif
                   </span>
                         </a>
                         <form class="form-inline">

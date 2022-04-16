@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 class HomeController extends Controller
 {
     //
@@ -14,6 +15,24 @@ class HomeController extends Controller
     public function test()
     {
         return view('home.test');
+    }
+    public function redirect(){
+
+        if(Auth::id()){
+            if(Auth::user()->email=='2010205590@ogrenci.karabuk.edu.tr')
+            {
+
+                return view('admin.index');
+            }
+            else{
+                return view('home.index');
+            }
+        }
+        else
+        {
+            return $this->redirect()->back();
+        }
+
     }
     public function param($id,$number)
     {

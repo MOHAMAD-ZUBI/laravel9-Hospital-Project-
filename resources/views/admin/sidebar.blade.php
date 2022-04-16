@@ -1,3 +1,4 @@
+
 <nav class="navbar-default navbar-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
@@ -7,7 +8,7 @@
 
 
             <li>
-                <a  href="index.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                <a  href="/admin/category"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
             </li>
             <li>
                 <a  href="ui.html"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
@@ -22,7 +23,7 @@
                 <a  href="table.html"><i class="fa fa-table fa-3x"></i> Table Examples</a>
             </li>
             <li  >
-                <a  href="form.html"><i class="fa fa-edit fa-3x"></i> Forms </a>
+                <a  href="/admin/category/create"><i class="fa fa-edit fa-3x"></i> Forms </a>
             </li>
 
 
@@ -61,4 +62,5 @@
     </div>
 
 </nav>
+
 <!-- /. NAV SIDE  -->
