@@ -12,7 +12,7 @@
 
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
                         <li class="breadcrumb-item active">Show Category</li>
                     </ol>
                 </div>
@@ -68,10 +68,10 @@
             <!-- /. ROW  -->
             <hr />
             <div class="col-sm-3">
-                <a href="/admin/category/edit/{{$data->id}}" class="btn btn-block btn-info">Edit</a>
+                <a href="{{route('admin.category.edit',['id'=>$data->id])}}" class="btn btn-block btn-info">Edit</a>
             </div>
             <div class="col-sm-3">
-                <a href="/admin/category/destroy/{{$data->id}}" class="btn btn-block btn-danger"onclick="return confirm('Deleting!! Are you sure?')">Delete</a>
+                <a href="{{route('admin.category.delete',['id'=>$data->id])}}" class="btn btn-block btn-danger"onclick="return confirm('Deleting!! Are you sure?')">Delete</a>
             </div>
         </div>
         <!-- /. PAGE INNER  -->

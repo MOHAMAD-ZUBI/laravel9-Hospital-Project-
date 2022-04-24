@@ -13,7 +13,7 @@
                     <h2>Add Category</h2>
                     <div class="col-md-6">
                         <h3>Category Elements</h3>
-                        <form role="form" action="/admin/category/store" method="post">
+                        <form role="form" action="{{route('admin.category.store')}}" method="post">
                             @csrf
 
 
