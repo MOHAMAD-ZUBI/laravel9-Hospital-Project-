@@ -13,14 +13,17 @@
               </span>
                     </div>
                 </form>
-            <li class="header" style="background-color: #9ca3af; position: center">    LABELS</li>
+            <li class ="nav-item">
+                <a href="/admin" class="nav-link"><i class="nav-icon fas fa-home text-danger"></i>Dashboard</a>
+            </li>
+            <li class="header text-white">    LABELS</li>
 
-            <li class="treeview active">
-                <a  href="/admin/category"> <i class="fa fa-dashboard"></i> <span>Appointments</span> <i class="fa fa-angle-left pull-right"></i> </a>
+            <li class="nav-item has-treeview">
+                <a  href="/admin/category"> <i class="fa fa-calendar-check-o"></i><span>Appointments</span> <i class="fa fa-angle-left pull-right"></i> </a>
 
-                <ul class="treeview-menu menu-open" style="display: block;">
-                    <li class=""><i class="fa-solid fa-circle-chevron-right"></i> <a href="index.html"> Active Appointments</a></li>
-                    <li><i class="fa-solid fa-circle-chevron-right"></i> <a href="index2.html">Old Appointments</a></li>
+                <ul class="treeview" role="menu" style="display: block;">
+                    <li class=""><i class="fa fa-calendar-minus-o"></i> <a href="index.html"> Active Appointments</a></li>
+                    <li><i class="fa fa-calendar-plus-o"></i> <a href="index2.html">Old Appointments</a></li>
                 </ul>
             </li>
 
@@ -29,13 +32,13 @@
                 <a href="/admin/category" class="nav-link"><i class="nav-icon fas fa-th"></i>Categories</a>
             </li>
             <li class ="nav-item">
-                <a href="/admin/comment" class="nav-link"><i class="fa-solid fa-reply"></i>Comments</a>
+                <a href="/admin/comment" class="nav-link"><i class="fa-solid fa-reply text-red-800"></i>Comments</a>
             </li>
             <li class ="nav-item">
-                <a href="/admin/faq" class="nav-link"><i class="fa-solid fa-square-envelope"></i>FAQ</a>
+                <a href="/admin/faq" class="nav-link"><i class="fa-solid fa-square-envelope text-blue-400"></i>FAQ</a>
             </li>
             <li class ="nav-item">
-                <a href="/admin/Messages" class="nav-link"><i class="fa-solid fa-message"></i>Messages</a>
+                <a href="/admin/Messages" class="nav-link"><i class="fa-solid fa-message text-indigo-50"></i>Messages</a>
             </li>
             <li class ="nav-item">
                 <a href="/admin/social" class="nav-link"><i class="fa-solid fa-hashtag"></i>Social</a>
@@ -44,7 +47,7 @@
                 <a href="/admin/user" class="nav-link"><i class="nav-icon fa fa-user"></i>Users</a>
             </li>
 
-            <li class="header" style="background-color: #9ca3af; position: center">    LABELS</li>
+             <li class="header">    LABELS</li>
             <li class="nav-item">
                 <a href="/admin/setting" class="nav-link">
                     <i class="fa-solid fa-sliders"></i>

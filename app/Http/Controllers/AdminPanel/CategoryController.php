@@ -61,7 +61,10 @@ class CategoryController extends Controller
     public function show(Category $category,$id)
     {
         //
-        echo "asd";
+        $data = Category:: find($id);
+        return view('admin.category.show',[
+            'data'=>$data
+        ]);
     }
 
     /**
