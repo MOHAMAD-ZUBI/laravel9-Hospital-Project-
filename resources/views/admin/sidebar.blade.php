@@ -5,25 +5,16 @@
             <li class="text-center">
                 <img src="{{asset('assets')}}/admin/img/find_user.png" class="user-image img-responsive"/>
 
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                <button type="submit" name="seach" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-                    </div>
-                </form>
             <li class ="nav-item">
                 <a href="/admin" class="nav-link"><i class="nav-icon fas fa-home text-danger"></i>Dashboard</a>
             </li>
-            <li class="header text-white">    LABELS</li>
 
-            <li class="nav-item has-treeview">
-                <a  href="/admin/category"> <i class="fa fa-calendar-check-o"></i><span>Appointments</span> <i class="fa fa-angle-left pull-right"></i> </a>
 
-                <ul class="treeview" role="menu" style="display: block;">
-                    <li class=""><i class="fa fa-calendar-minus-o"></i> <a href="index.html"> Active Appointments</a></li>
-                    <li><i class="fa fa-calendar-plus-o"></i> <a href="index2.html">Old Appointments</a></li>
+            <li>
+                <a href="/admin/category"><i class="fa fa-calendar-check-o"></i> Appointments<span class="fa arrow"></span></a>
+                <ul class="treeview" role="menu">
+                    <li ><a href="index.html"><i class="fa fa-calendar-minus-o"></i>  Active Appointments</a></li>
+                    <li> <a href="index2.html"><i class="fa fa-calendar-plus-o"></i>  Old Appointments</a></li>
                 </ul>
             </li>
 
@@ -46,8 +37,6 @@
             <li class ="nav-item">
                 <a href="/admin/user" class="nav-link"><i class="nav-icon fa fa-user"></i>Users</a>
             </li>
-
-             <li class="header">    LABELS</li>
             <li class="nav-item">
                 <a href="/admin/setting" class="nav-link">
                     <i class="fa-solid fa-sliders"></i>

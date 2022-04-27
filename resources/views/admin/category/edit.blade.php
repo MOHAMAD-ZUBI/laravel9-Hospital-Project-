@@ -13,7 +13,7 @@
                     <h2>Edit Category: {{$data->title}}</h2>
                     <div class="col-md-6">
                         <h3>Category Elements</h3>
-                        <form role="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post">
+                        <form role="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                             @csrf
 
 
