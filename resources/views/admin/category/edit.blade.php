@@ -9,6 +9,7 @@
     <div id="page-wrapper" >
         <div id="page-inner">
             <div class="row">
+
                 <div class="col-md-12">
                     <h2>Edit Category: {{$data->title}}</h2>
                     <div class="col-md-6">
@@ -19,29 +20,22 @@
 
 
                             <div class="form-group">
+                                <label >Parent Category</label>
+
+                                <select class="form-control select2" name="parent_id" style="">
+                                    <option value="0" selected="selected">Main Category</option>
+                                    @foreach($datalist as $rs)
+                                        <option value="{{ $rs->id }}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
+                                    @endforeach
+                                </select>
                                 <label for="Text Input">Title</label>
                                 <input type="text" class="form-control" name="title" value="{{$data->title}}" >
-                                <p class="help-block">Help text here.</p>
                             </div>
-
-
-
-
 
                             <div class="form-group">
                                 <label for="Text Input">Keywords</label>
                                 <input type="text" class="form-control" name="keywords" value="{{$data->keywords}}">
                             </div>
-
-
-
-                            <div class="form-group">
-                                <label>Just A Label Control</label>
-                                <p class="form-control-static">info@yourdomain.com</p>
-                            </div>
-
-
-
 
 
                             <div class="form-group">
