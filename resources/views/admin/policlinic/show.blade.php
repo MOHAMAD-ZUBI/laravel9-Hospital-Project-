@@ -28,6 +28,11 @@
 
                                 </tr>
                                 <tr>
+                                    <th style="width: 150px">Category</th>
+                                    <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($data->category, $data->category->title)}}</td>
+
+                                </tr>
+                                <tr>
                                     <th style="width: 150px">Title</th>
                                     <td>{{$data->title}}</td>
 
@@ -49,7 +54,6 @@
                                             <img src="{{Storage::url($data->image)}}" style="height: 40px">
                                         @endif
                                     </td>
-
                                 </tr>
                                 <tr>
                                     <th style="width: 150px">Status</th>

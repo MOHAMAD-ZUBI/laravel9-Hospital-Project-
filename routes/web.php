@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPanel\AdminPoliclinicController;
 use App\Http\Controllers\AdminPanel\Home\MyController;
 use App\Http\Controllers\AdminPanel\CategoryController As AdminCategoryController;
 use Illuminate\Foundation\Application;
@@ -60,4 +61,16 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::post('/update/{id}','update')->name('update');
         Route::get('/show/{id}', 'show')->name('show');
     });
+
+    // **** admin policlinic route ****//
+    Route::prefix('/policlinic')->name('policlinic.')->controller(AdminPoliclinicController::class)->group(function() {
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::get('/delete/{id}','delete')->name('delete');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/show/{id}', 'show')->name('show');
+    });
 });
+

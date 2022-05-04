@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title','Category List')
+@section('title','Policlinic List')
 
 
 @section('content')
@@ -10,20 +10,21 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-2">
-                    <a href="{{route('admin.category.create')}}" class="btn btn-block btn-info">Add Category</a>
+                    <a href="{{route('admin.policlinic.create')}}" class="btn btn-block btn-info">Add Policlinic</a>
 
                 </div>
                 <div class="col-md-12">
                     <div class="col-sm-12">
                         <div class="box-header">
-                            <h3 class="box-title">Category List</h3>
+                            <h3 class="box-title">Policlinic List</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <table class="table table-bordered">
                                 <tbody><tr>
                                     <th style="width: 10px">Id</th>
-                                    <th>Parent</th>
+                                    <th>Category</th>
                                     <th>Title</th>
+                                    <th>Detail</th>
                                     <th>Image</th>
                                     <th>Status</th>
                                     <th style="width: 40px">Edit</th>
@@ -33,21 +34,23 @@
                                 </tr>
 
                                 @foreach($data as $rs)
-                                    <tr>
-                                        <td>{{$rs->id}}</td>
-                                        <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title)}}</td>
-                                        <td>{{$rs->title}}</td>
-                                        <td>
-                                            @if ($rs->image)
-                                                <img src="{{Storage::url($rs->image)}}" style="height: 40px">
-                                            @endif
-                                        </td>
-                                        <td>{{$rs->status}}</td>
-                                        <td><a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="btn btn-info">Edit</a> </td>
-                                        <td><a href="{{route('admin.category.delete',['id'=>$rs->id])}}"class="btn  btn-danger btn-sm" onclick="return confirm('Deleting!! Are you sure?')">Delete</a></td>
-                                        <td><a href="{{route('admin.category.show',['id'=>$rs->id])}}"class="btn btn-success btn-sm">Show</a></td>
+                                <tr>
+                                    <td>{{$rs->id}}</td>
+                                    <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category, $rs->category->title)}}</td>
+                                    <td>{{$rs->title}}</td>
+                                    <td>{{$rs->detail}}</td>
 
-                                    </tr>
+                                    <td>
+                                        @if ($rs->image)
+                                        <img src="{{Storage::url($rs->image)}}" style="height: 40px">
+                                            @endif
+                                    </td>
+                                    <td>{{$rs->status}}</td>
+                                    <td><a href="{{route('admin.policlinic.edit',['id'=>$rs->id])}}" class="btn btn-info">Edit</a> </td>
+                                    <td><a href="{{route('admin.policlinic.delete',['id'=>$rs->id])}}"class="btn  btn-danger btn-sm" onclick="return confirm('Deleting!! Are you sure?')">Delete</a></td>
+                                    <td><a href="{{route('admin.policlinic.show',['id'=>$rs->id])}}"class="btn btn-success btn-sm">Show</a></td>
+
+                                </tr>
 
                                 @endforeach
                                 </tbody>
