@@ -24,7 +24,6 @@
                                     <th style="width: 10px">Id</th>
                                     <th>Category</th>
                                     <th>Title</th>
-                                    <th>Detail</th>
                                     <th>Image</th>
                                     <th>Image Gallery</th>
                                     <th>Status</th>
@@ -39,7 +38,6 @@
                                     <td>{{$rs->id}}</td>
                                     <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category, $rs->category->title)}}</td>
                                     <td>{{$rs->title}}</td>
-                                    <td>{{$rs->detail}}</td>
 
                                     <td>
                                         @if ($rs->image)

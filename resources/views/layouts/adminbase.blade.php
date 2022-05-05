@@ -17,7 +17,7 @@
 
 @yield("head")
 </head>
-
+<body>
 
 @section('navbar')
     @include("admin.navbar")
@@ -26,13 +26,15 @@
     @include("admin.sidebar")
 @show
 
-@section('footer')
-    @include("admin.footer")
-@show
+
+
+
 
 @yield('content')
+@include("admin.footer")
+@yield('foot')
 
-<body>
+
 
 </body>
 </html>

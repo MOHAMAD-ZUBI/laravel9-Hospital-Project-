@@ -1,6 +1,9 @@
 @extends('layouts.adminbase')
 
 @section('title','Add Poiclinic')
+@section('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 
 
 @section('content')
@@ -48,16 +51,6 @@
 
 
 
-
-                            <div class="form-group">
-                                <label>Just A Label Control</label>
-                                <p class="form-control-static">info@yourdomain.com</p>
-                            </div>
-
-
-
-
-
                             <div class="form-group">
                                 <label for="exampleInputFile">Image</label>
 
@@ -68,9 +61,19 @@
 
                             <div class="form-group">
                                 <label for="Text Input">Detail Info</label>
-                                <textarea class="form-control" name="detail">
+                                <textarea class="form-control" id="detail" name="detail">
 
                                 </textarea>
+                                <script>
+                                    ClassicEditor
+                                        .create( document.querySelector( '#detail' ) )
+                                        .then( editor => {
+                                            console.log( editor );
+                                        } )
+                                        .catch( error => {
+                                            console.error( error );
+                                        } );
+                                </script>
                             </div>
 
 
