@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminPanel\AdminPoliclinicController;
 use App\Http\Controllers\AdminPanel\Home\MyController;
 use App\Http\Controllers\AdminPanel\CategoryController As AdminCategoryController;
+use App\Http\Controllers\AdminPanel\ImageController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -62,7 +63,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('/show/{id}', 'show')->name('show');
     });
 
-    // **** admin policlinic route ****//
+    // **** admin policlinic routes ****//
     Route::prefix('/policlinic')->name('policlinic.')->controller(AdminPoliclinicController::class)->group(function() {
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');
@@ -71,6 +72,14 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('/delete/{id}','delete')->name('delete');
         Route::post('/update/{id}','update')->name('update');
         Route::get('/show/{id}', 'show')->name('show');
+    });
+
+
+    // **** admin image gallery routes ****//
+    Route::prefix('/image')->name('image.')->controller(ImageController::class)->group(function() {
+        Route::get('/{pid}','index')->name('index');
+        Route::post('/store/{pid}', 'store')->name('store');
+        Route::get('/delete/{pid}/{id}','delete')->name('delete');
     });
 });
 
