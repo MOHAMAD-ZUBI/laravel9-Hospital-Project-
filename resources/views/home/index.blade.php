@@ -232,77 +232,24 @@
             </div>
             <div class="row">
                 <div class="col-md-6 col-lg-3">
+                    @foreach($policliniclist1 as $rs)
                     <div class="box ">
                         <div class="img-box">
-                            <img src="{{asset('assets')}}/images/t1.png" alt="">
+                            <img src="{{Storage::url($rs->image)}}" alt="">
                         </div>
                         <div class="detail-box">
                             <h4>
-                                Nephrologist Care
+                                {{$rs->title}}
                             </h4>
                             <p>
-                                alteration in some form, by injected humour, or randomised words which don't look even slightly e sure there isn't anything
+                                {{$rs->keywords}}
                             </p>
-                            <a href="">
-                                Read More
-                            </a>
+                            <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view </button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="box ">
-                        <div class="img-box">
-                            <img src="{{asset('assets')}}/images/t2.png" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h4>
-                                Eye Care
-                            </h4>
-                            <p>
-                                alteration in some form, by injected humour, or randomised words which don't look even slightly e sure there isn't anything
-                            </p>
-                            <a href="">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="box ">
-                        <div class="img-box">
-                            <img src="{{asset('assets')}}/images/t3.png" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h4>
-                                Pediatrician Clinic
-                            </h4>
-                            <p>
-                                alteration in some form, by injected humour, or randomised words which don't look even slightly e sure there isn't anything
-                            </p>
-                            <a href="">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="box ">
-                        <div class="img-box">
-                            <img src="{{asset('assets')}}/images/t4.png" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h4>
-                                Parental Care
-                            </h4>
-                            <p>
-                                alteration in some form, by injected humour, or randomised words which don't look even slightly e sure there isn't anything
-                            </p>
-                            <a href="">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -315,102 +262,32 @@
         <div class="container">
             <div class="heading_container heading_center">
                 <h2>
-                    Our <span>Doctors</span>
+                    Our <span>Policlinics</span>
                 </h2>
             </div>
+
             <div class="carousel-wrap ">
+
                 <div class="owl-carousel team_carousel">
                     <div class="item">
+                        @foreach($sliderdata as $rs)
                         <div class="box">
                             <div class="img-box">
-                                <img src="{{asset('assets')}}/images/team1.jpg" alt="" />
+                                <img src="{{Storage::url($rs->image)}}"/>
                             </div>
                             <div class="detail-box">
                                 <h5>
-                                    Hennry
+                                    {{$rs->title}}
                                 </h5>
                                 <h6>
                                     MBBS
                                 </h6>
-                                <div class="social_box">
-                                    <a href="">
-                                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="box">
-                            <div class="img-box">
-                                <img src="{{asset('assets')}}/images/team2.jpg" alt="" />
-                            </div>
-                            <div class="detail-box">
-                                <h5>
-                                    Jenni
-                                </h5>
-                                <h6>
-                                    MBBS
-                                </h6>
-                                <div class="social_box">
-                                    <a href="">
-                                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="box">
-                            <div class="img-box">
-                                <img src="{{asset('assets')}}/images/team3.jpg" alt="" />
-                            </div>
-                            <div class="detail-box">
-                                <h5>
-                                    Morco
-                                </h5>
-                                <h6>
-                                    MBBS
-                                </h6>
-                                <div class="social_box">
-                                    <a href="">
-                                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </section>
+
 
     <!-- end team section -->
 

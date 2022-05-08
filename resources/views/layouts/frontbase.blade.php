@@ -12,7 +12,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>@yield("Title")</title>
+    <title>@yield("title")</title>
 
 
     <!-- bootstrap core css -->
