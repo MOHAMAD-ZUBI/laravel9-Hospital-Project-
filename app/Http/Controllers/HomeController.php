@@ -20,6 +20,16 @@ class HomeController extends Controller
 
 
     }
+
+    public function policlinic($id)
+    {
+        $data=Policlinic::find($id);
+        return view('home.policlinic',[
+            'data'=>$data
+        ]);
+
+
+    }
     public function test()
     {
         return view('home.test');

@@ -35,7 +35,7 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 // Route-> MyController->View
 Route::get('/test',[HomeController::class,'test'])->name('test');
 // Route with parameters
-Route::get('/param/{id}/{number}',[HomeController::class,'param'])->name('param');
+Route::get('/policlinic/{id}',[HomeController::class,'policlinic'])->name('policlinic');
 // Route with post
 Route::post('/save',[HomeController::class,'save'])->name('save');
 Route::middleware([

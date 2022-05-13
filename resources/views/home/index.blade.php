@@ -234,17 +234,14 @@
                 <div class="col-md-6 col-lg-3">
                     @foreach($policliniclist1 as $rs)
                     <div class="box ">
-                        <div class="img-box">
-                            <img src="{{Storage::url($rs->image)}}" alt="">
-                        </div>
+
+                            <img src="{{Storage::url($rs->image)}}" style="height: 120px">
+
                         <div class="detail-box">
                             <h4>
                                 {{$rs->title}}
                             </h4>
-                            <p>
-                                {{$rs->keywords}}
-                            </p>
-                            <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view </button>
+                            <a href="{{route('policlinic',['id'=>$rs->id])}}" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view </a>
                         </div>
                     </div>
                 </div>
