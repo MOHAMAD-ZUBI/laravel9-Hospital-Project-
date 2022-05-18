@@ -32,7 +32,7 @@
                                     <p>
                                         when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to
                                     </p>
-                                    <a href="">
+                                    <a href="/contactus">
                                         Contact Us
                                     </a>
                                 </div>
@@ -96,7 +96,7 @@
                                     <p>
                                         when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to
                                     </p>
-                                    <a href="">
+                                    <a href="/contactus">
                                         Contact Us
                                     </a>
                                 </div>
@@ -208,9 +208,9 @@
                             </h2>
                         </div>
                         <p>
-                            has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors
+                            {!! $setting->aboutus !!}
                         </p>
-                        <a href="">
+                        <a href="/about">
                             Read More
                         </a>
                     </div>
