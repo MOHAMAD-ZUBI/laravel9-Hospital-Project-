@@ -2,18 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Policlinic;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 class HomeController extends Controller
 {
+    public static function maincategorylist(){
+        return Category::where('parent_id','=',0)->with('children')->get();
+    }
     //
     public function index()
     {
+        $page ='home';
         $sliderdata=Policlinic::limit(4)->get();
         $policliniclist1=Policlinic::limit(6)->get();
+        $setting = Setting::first();
         return view('home.index',[
+                'page'=>$page,
+                'setting'=>$setting,
                 'sliderdata'=>$sliderdata,
                 'policliniclist1'=>$policliniclist1
             ]);

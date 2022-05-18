@@ -14,4 +14,10 @@ class Category extends Model
     public function policlinics(){
         return $this->hasMany(Policlinic::class);
     }
+    public function parent(){
+        return $this->belongTo(Category::class, 'parent_id');
+    }
+    public function children(){
+        return $this->HasMany(Category::class, 'parent_id');
+    }
 }

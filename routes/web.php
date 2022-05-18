@@ -52,7 +52,11 @@ Route::get('/home',[HomeController::class,'redirect']);
 // ***** admin panel ***** //
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('/', [MyController::class,'index'])->name('index');
-                // **** admin category route ****//
+    // **** General Routes route ****//
+    Route::get('/setting', [MyController::class,'setting'])->name('setting');
+    Route::post('/setting', [MyController::class,'settingUpdate'])->name('setting.update');
+
+    // **** admin category route ****//
     Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function() {
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');
