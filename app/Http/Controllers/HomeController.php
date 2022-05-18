@@ -30,6 +30,34 @@ class HomeController extends Controller
 
     }
 
+    public function about()
+    {
+        $setting = Setting::first();
+        return view('home.about',[
+            'setting'=>$setting
+        ]);
+
+
+    }
+    public function references()
+    {
+        $setting = Setting::first();
+        return view('home.references',[
+            'setting'=>$setting
+        ]);
+
+
+    }
+    public function contactus()
+    {
+        $setting = Setting::first();
+        return view('home.contactus',[
+            'setting'=>$setting
+        ]);
+
+
+    }
+
     public function policlinic($id)
     {
         $data=Policlinic::find($id);
