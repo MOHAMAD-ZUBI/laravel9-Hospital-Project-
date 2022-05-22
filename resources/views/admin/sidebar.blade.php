@@ -68,7 +68,7 @@
                     </lord-icon>FAQ</a>
             </li>
             <li class ="nav-item">
-                <a href="/admin/Messages" class="nav-link"><lord-icon
+                <a href="{{route('admin.message.index')}}" class="nav-link"><lord-icon
                         src="https://cdn.lordicon.com/rhvddzym.json"
                         trigger="loop"
                         colors="primary:#e4e4e4,secondary:#ee6d66"

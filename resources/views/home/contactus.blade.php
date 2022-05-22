@@ -8,34 +8,39 @@
 
 @section('content')
 
-    <section class="contact_section layout_padding-bottom">
+    <section class="contact_section layout_padding">
         <div class="container">
             <div class="heading_container">
                 <h2>
-                    Get In Touch
+                    Get In <span>Touch</span>
                 </h2>
             </div>
+            @include('home.messages')
             <div class="row">
                 <div class="col-md-7">
                     <div class="form_container">
-                        <form action="">
-                            <div>
-                                <input type="text" placeholder="Full Name">
+                        <form action="{{route("storemessage")}}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <input class="input" type="text" name="name" placeholder="Name & Surname">
                             </div>
-                            <div>
-                                <input type="email" placeholder="Email">
+                            <div class="form-group">
+                                <input class="input" type="tel" name="phone" placeholder="Phone Number">
                             </div>
-                            <div>
-                                <input type="text" placeholder="Phone Number">
+                            <div class="form-group">
+                                <input class="input" type="text" name="email" placeholder="Email">
                             </div>
-                            <div>
-                                <input type="text" class="message-box" placeholder="Message">
+                            <div class="form-group">
+                                <input class="input" type="text" name="subject" placeholder="Subject">
                             </div>
-                            <div class="btn_box">
-                                <button>
-                                    SEND
-                                </button>
+                            <div class="form-group">
+                                <input type="text" name="message" class="message-box" placeholder="Your Message">
                             </div>
+                            <div class="form-group">
+                                <input class="input" type="submit" value="Send Message">
+                            </div>
+
+
                         </form>
                     </div>
                 </div>
