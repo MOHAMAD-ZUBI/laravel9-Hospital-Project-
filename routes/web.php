@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPanel\AdminPoliclinicController;
+use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\Home\MyController;
 use App\Http\Controllers\AdminPanel\CategoryController As AdminCategoryController;
 use App\Http\Controllers\AdminPanel\ImageController;
@@ -36,6 +37,7 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/about',[HomeController::class,'about'])->name('about');
 Route::get('/references',[HomeController::class,'references'])->name('references');
 Route::get('/contactus',[HomeController::class,'contactus'])->name('contactus');
+Route::get('/faq',[HomeController::class,'faq'])->name('faq');
 Route::post('/storemessage',[HomeController::class,'storemessage'])->name('storemessage');
 
 // Route-> MyController->View
@@ -100,6 +102,17 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('/destroy/{id}','delete')->name('destroy');
         Route::get('/show/{id}', 'show')->name('show');
 
+    });
+
+    //**************ADMIN FAQ ROUTES**************
+    Route::prefix('/faq')->name('faq.')->controller(FaqController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
+        Route::get('/show/{id}', 'show')->name('show');
     });
 });
 
