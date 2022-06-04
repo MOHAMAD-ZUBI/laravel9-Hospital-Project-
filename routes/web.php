@@ -39,6 +39,10 @@ Route::get('/references',[HomeController::class,'references'])->name('references
 Route::get('/contactus',[HomeController::class,'contactus'])->name('contactus');
 Route::get('/faq',[HomeController::class,'faq'])->name('faq');
 Route::post('/storemessage',[HomeController::class,'storemessage'])->name('storemessage');
+Route::view('/loginuser','home.login');
+Route::view('/registeruser','home.register');
+Route::get('/logoutuser', [HomeController::class, 'logout'])->name('logoutuser');
+
 
 // Route-> MyController->View
 Route::get('/test',[HomeController::class,'test'])->name('test');

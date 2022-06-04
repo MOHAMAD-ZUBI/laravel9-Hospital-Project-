@@ -129,6 +129,15 @@ class HomeController extends Controller
         echo "First Name : ", $_REQUEST["fname"];
         echo " Last Name : ", $_REQUEST["lname"];
     }
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 
 
 }

@@ -270,8 +270,9 @@
             <div class="carousel-wrap ">
 
                 <div class="owl-carousel team_carousel">
+                    @foreach($sliderdata as $rs)
                     <div class="item">
-                        @foreach($sliderdata as $rs)
+
                         <div class="box">
                             <div class="img-box">
                                 <img src="{{Storage::url($rs->image)}}"/>
@@ -287,6 +288,9 @@
                         </div>
                     </div>
         @endforeach
+                </div>
+            </div>
+
     </section>
 
 
@@ -445,7 +449,7 @@
                             <a href="">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <span>
-                  Location
+                  Karabuk
                 </span>
                             </a>
                             <a href="">
@@ -457,7 +461,7 @@
                             <a href="">
                                 <i class="fa fa-envelope"></i>
                                 <span>
-                  demo@gmail.com
+                  hospital@gmail.com
                 </span>
                             </a>
                         </div>
@@ -485,19 +489,19 @@
                                 <a class="active" href="index.html">
                                     Home
                                 </a>
-                                <a href="about.html">
+                                <a href="{{route('about')}}">
                                     About
                                 </a>
-                                <a href="treatment.html">
+                                <a href="{{route('about')}}">
                                     Treatment
                                 </a>
-                                <a href="doctor.html">
-                                    Doctors
+                                <a href="#">
+                                    Policlinics
                                 </a>
-                                <a href="testimonial.html">
-                                    Testimonial
+                                <a href="{{route('faq')}}">
+                                    FAQ
                                 </a>
-                                <a href="contact.html">
+                                <a href="{{route('contactus')}}">
                                     Contact us
                                 </a>
                             </div>

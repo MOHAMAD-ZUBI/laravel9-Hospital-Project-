@@ -67,27 +67,29 @@
                             </li>
                         </ul>
                     </div>
-                    @if(Route::has('login'))
-
-                        @auth
-                            <h1>logged in!</h1>
-                    @else
-
-                    <div class="quote_btn-container">
-                        <a href="{{route('login')}}">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>
-                    Login
-                  </span>
-                        </a>
-                        <a href="{{route('register')}}">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>
-                    Sign Up
+                    <div class="top-header">
+                        <div class="container">
+                            <div class="dropdown float-right">
+                                @auth
+                                    <a class="dropdown-toggle pointer top-header-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-user"></i> {{Auth::user()->name}}
+                                    </a>
                                 @endauth
-                                @endif
-                  </span>
-                        </a>
+                                @guest
+                                    <a class=" pointer top-header-link" href="/loginuser">LOGIN / </a>
+                                        <a href="/registeruser" class=" pointer top-header-link">JOIN US</a>
+                                @endguest
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="dashboard.html">Dashboard</a>
+                                    <a class="dropdown-item" href="dashboard.html">My Uploaded notes</a>
+                                    <a class="dropdown-item" href="/logoutuser">LogOut</a>
+
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
                         <form class="form-inline">
                             <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                                 <i class="fa fa-search" aria-hidden="true"></i>
