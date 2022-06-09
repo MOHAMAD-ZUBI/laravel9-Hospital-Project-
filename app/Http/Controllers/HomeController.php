@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Faq;
 use App\Models\Message;
 use App\Models\Policlinic;
@@ -10,6 +11,8 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+
 class HomeController extends Controller
 {
     public static function maincategorylist(){
@@ -81,11 +84,29 @@ class HomeController extends Controller
         return redirect()->route('contactus')->with('info','Your message has been sent , Thank You.');
     }
 
+    public function storecomment(Request $request)
+    {
+        // dd($request);
+        $data = new Comment();
+        $data->user_id = Auth::id();
+        $data->policlinic_id = $request->input('policlinic_id');
+        $data->rate = $request->input('rate');
+        $data->review = $request->input('review');
+        $data->ip=request()->ip();
+        $data->save();
+
+        return redirect()->route('policlinic',['id'=>$request->input('policlinic_id')])->with('success','Your comment has been sent , Thank You.');
+    }
+
     public function policlinic($id)
     {
         $data=Policlinic::find($id);
+        $images = DB::table('images')->where('policlinic_id',$id)->get();
+        $reviews = Comment::where('policlinic_id',$id)->where('status','True')->get();
         return view('home.policlinic',[
-            'data'=>$data
+            'data'=>$data,
+            'images'=>$images,
+            'reviews'=>$reviews
         ]);
 
 

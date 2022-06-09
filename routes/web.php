@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPanel\AdminPoliclinicController;
+use App\Http\Controllers\AdminPanel\CommentController;
 use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\Home\MyController;
 use App\Http\Controllers\AdminPanel\CategoryController As AdminCategoryController;
@@ -42,6 +43,7 @@ Route::post('/storemessage',[HomeController::class,'storemessage'])->name('store
 Route::view('/loginuser','home.login');
 Route::view('/registeruser','home.register');
 Route::get('/logoutuser', [HomeController::class, 'logout'])->name('logoutuser');
+Route::post('/storecomment',[HomeController::class,'storecomment'])->name('storecomment');
 
 
 // Route-> MyController->View
@@ -117,6 +119,15 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::post('/update/{id}','update')->name('update');
         Route::get('/destroy/{id}','destroy')->name('destroy');
         Route::get('/show/{id}', 'show')->name('show');
+    });
+    //**************ADMIN COMMENT ROUTES**************
+    Route::prefix('/comment')->name('comment.')->controller(CommentController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/show/{id}', 'show')->name('show');
+
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
+
     });
 });
 

@@ -30,6 +30,10 @@
                                                     </tr>
                                                     <tr>
                                                         <th>User</th>
+                                                        <td>{{$data->policlinic->title}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>User</th>
                                                         <td>{{$data->user->name}}</td>
                                                     </tr>
                                                     <tr>
