@@ -11,6 +11,7 @@
     <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"><a href="/logoutuser" class="btn btn-danger square-btn-adjust">Logout</a> </div>
 </nav>
+
 <!-- /. NAV TOP  -->

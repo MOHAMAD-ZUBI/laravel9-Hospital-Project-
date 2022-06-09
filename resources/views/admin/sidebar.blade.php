@@ -4,7 +4,10 @@
         <ul class="nav" id="main-menu">
             <li class="text-center">
                 <img src="{{asset('assets')}}/admin/img/find_user.png" class="user-image img-responsive"/>
-
+                <div class="info">
+                    <a href="#" class="nav-link">{{Auth::user()->name}}</a>
+                </div>
+            </li>
             <li class ="nav-item">
                 <a href="/admin" class="nav-link"><lord-icon
                         src="https://cdn.lordicon.com/gmzxduhd.json"
