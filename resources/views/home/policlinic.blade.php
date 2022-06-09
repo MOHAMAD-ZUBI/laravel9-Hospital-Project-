@@ -19,36 +19,44 @@
                             </h2>
                         </div>
                         <p>
-                            {!! $data->detail !!}
+                            {!! $data->description !!}
                         </p>
                         <form class="review-form"  action="{{route('storecomment')}}" method="post">
-                            <div class="form-group">
-                                <input class="input" type="text" placeholder="Your name" />
-                            </div>
-                            <div class="form-group">
-                                <input class="input" type="email" placeholder="Your Email" />
-                            </div>
                         <div class="form-group">
                             @csrf
                             <div class="form-group">
                             <input class="input" type="hidden" name="policlinic_id"  value="{{$data->id}}" >
                             </div>
 
-                            <div class="form-group">
-                                <textarea class="input-group" name="review" type="text" name="review" placeholder="Review"></textarea>
-                            </div>
+                            @php $average = $data->comment->average('rate'); @endphp
                             <div class="input-rating">
-                                <strong class="text-uppercase">Your Rating: </strong>
+                                <strong class="text-uppercase">Your Ratings: {{$data->comment->count('rate')}} </strong>
+                                <div class="decoration-indigo-700">
+                                    <li class="fa fa-star @if ($average<1) -o empty @endif"></li>
+                                    <li class="fa fa-star @if ($average<2) -o empty @endif"></li>
+                                    <li class="fa fa-star @if ($average<3) -o empty @endif"></li>
+                                    <li class="fa fa-star @if ($average<4) -o empty @endif"></li>
+                                    <li class="fa fa-star @if ($average<5) -o empty @endif"></li>
+                                </div>
 
                                 <input type="number" id="star5" name="rate" value="5" /><label for="star5"></label>
                                 <div class="form-group">
+                                    <div class="form-group">
+                                        <textarea class="input-group" name="review" type="text" name="review" placeholder="Review"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="input" type="text" placeholder="Your name" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="input" type="email" placeholder="Your Email" />
+                                    </div>
                                     @auth()
                                         <input class="form-control" type="submit"  value="Send Comment" >
                                     @else
                                         <a href="/login" class="btn btn-outline-danger">For Submitting Your Review, Please Login</a>
                                     @endauth
-                                    <hr>
-                                    <strong><h2>REV<span>IEWS</span> </h2></strong>
+<hr>
+                                    <strong><h3>REVIEWS </h3></strong>
                                 </div>
                             </div>
                         </div>
@@ -56,9 +64,8 @@
                         @foreach($reviews as $rs)
 
                             <div class="col-md-12">
-                                <div><a href="#"><i class="fa fa-user-o"></i>{{$rs->user->name}} </a></div>
-                                <div><a href="#"><i class="fa fa-clock-o"></i>{{$rs->created_at}} </a></div>
-                                <p>{{$rs->rate}}</p>
+                                <div><i class="fa fa-user-o"></i> {{$rs->user->name}} Rating: {{$rs->rate}}</div>
+                                <div class="text-gray-800"><i class="fa fa-clock-o"></i> {{$rs->created_at}}</div>
                                 <strong>{{$rs->review}}</strong>
                                 <hr>
                             </div>
