@@ -80,7 +80,7 @@
                                         <a href="/registeruser" class=" pointer top-header-link">JOIN US</a>
                                 @endguest
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="dashboard.html">Dashboard</a>
+                                    <a class="dropdown-item" href="{{route('userpanel.index')}}">Dashboard</a>
                                     <a class="dropdown-item" href="dashboard.html">My Appointments</a>
                                     <a class="dropdown-item" href="/logoutuser">LogOut</a>
 

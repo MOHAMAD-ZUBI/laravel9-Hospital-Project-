@@ -8,6 +8,7 @@
         use App\Http\Controllers\AdminPanel\CategoryController As AdminCategoryController;
         use App\Http\Controllers\AdminPanel\ImageController;
         use App\Http\Controllers\AdminPanel\MessageController;
+        use App\Http\Controllers\UserController;
         use Illuminate\Foundation\Application;
         use Illuminate\Support\Facades\Route;
         use Inertia\Inertia;
@@ -67,14 +68,27 @@
         });
 
         Route::get('/home',[HomeController::class,'redirect']);
-        // ***** admin panel ***** //
-        Route::middleware('admin')->prefix('admin')->name('admin.')->group(function() {
+
+
+
+
+
+        //**************USER AUTH CONTROL **************
+        Route::middleware('auth')->group(function (){
+            //**************USER ROUTES**************
+        Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class)->group(function() {
+            Route::get('/','index')->name('index');
+
+
+        });
+            //**************ADMIN ROUTES**************
+        Route::middleware('admin')->prefix('user')->name('admin.')->group(function() {
             Route::get('/', [MyController::class,'index'])->name('index');
-            // **** General Routes route ****//
+            //**************ADMIN GENERAL ROUTES**************
             Route::get('/setting', [MyController::class,'setting'])->name('setting');
             Route::post('/setting', [MyController::class,'settingUpdate'])->name('setting.update');
 
-            // **** admin category route ****//
+            //**************ADMIN CATEGORY ROUTES**************
             Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function() {
                 Route::get('/','index')->name('index');
                 Route::get('/create','create')->name('create');
@@ -85,7 +99,7 @@
                 Route::get('/show/{id}', 'show')->name('show');
             });
 
-            // **** admin policlinic routes ****//
+            //**************ADMIN POLICLINICS ROUTES**************
             Route::prefix('/policlinic')->name('policlinic.')->controller(AdminPoliclinicController::class)->group(function() {
                 Route::get('/','index')->name('index');
                 Route::get('/create','create')->name('create');
@@ -97,7 +111,7 @@
             });
 
 
-            // **** admin image gallery routes ****//
+            //**************ADMIN image gallery ROUTES**************
             Route::prefix('/image')->name('image.')->controller(ImageController::class)->group(function() {
                 Route::get('/{pid}','index')->name('index');
                 Route::post('/store/{pid}', 'store')->name('store');
@@ -105,7 +119,7 @@
             });
 
 
-            // **** admin message routes ****//
+            //**************ADMIN MSG ROUTES**************
             Route::prefix('/message')->name('message.')->controller(MessageController::class)->group(function() {
                 Route::get('/','index')->name('index');
                 Route::post('/update/{id}','update')->name('update');
@@ -147,4 +161,5 @@
             });
 
         });
+    });
 
