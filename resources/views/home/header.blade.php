@@ -81,7 +81,7 @@
                                 @endguest
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="dashboard.html">Dashboard</a>
-                                    <a class="dropdown-item" href="dashboard.html">My Uploaded notes</a>
+                                    <a class="dropdown-item" href="dashboard.html">My Appointments</a>
                                     <a class="dropdown-item" href="/logoutuser">LogOut</a>
 
                                 </div>
