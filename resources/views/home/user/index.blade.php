@@ -33,7 +33,6 @@
 
 
                     <div class="input-checkbox">
-
                     </div>
                 </div>
             </div>

@@ -27,10 +27,7 @@
                     </lord-icon> Appointments <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">Active Appointments</a>
-                    </li>
-                    <li>
-                        <a href="#">Old Appointments</a>
+                        <a href="admin/appointment">Active Appointments</a>
                     </li>
 
                 </ul>

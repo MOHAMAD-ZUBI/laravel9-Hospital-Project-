@@ -2,17 +2,18 @@
 
         use App\Http\Controllers\AdminPanel\AdminPoliclinicController;
         use App\Http\Controllers\AdminPanel\AdminUserController;
+        use App\Http\Controllers\AdminPanel\AppointmentController;
+        use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
         use App\Http\Controllers\AdminPanel\CommentController;
         use App\Http\Controllers\AdminPanel\FaqController;
-        use App\Http\Controllers\AdminPanel\Home\MyController;
-        use App\Http\Controllers\AdminPanel\CategoryController As AdminCategoryController;
         use App\Http\Controllers\AdminPanel\ImageController;
         use App\Http\Controllers\AdminPanel\MessageController;
+        use App\Http\Controllers\Home\MyController;
+        use App\Http\Controllers\HomeController;
         use App\Http\Controllers\UserController;
         use Illuminate\Foundation\Application;
         use Illuminate\Support\Facades\Route;
         use Inertia\Inertia;
-        use \App\Http\Controllers\HomeController;
 
 
         /*
@@ -38,17 +39,20 @@
         // call controller
         Route::get('/',[HomeController::class,'index'])->name('home');
         Route::get('/about',[HomeController::class,'about'])->name('about');
+        Route::get('/treatment',[HomeController::class,'treatment'])->name('treatment');
         Route::get('/references',[HomeController::class,'references'])->name('references');
         Route::get('/contactus',[HomeController::class,'contactus'])->name('contactus');
         Route::get('/faq',[HomeController::class,'faq'])->name('faq');
         Route::post('/storemessage',[HomeController::class,'storemessage'])->name('storemessage');
-        Route::view('/loginuser','home.login');
+        Route::view('/loginuser','home.login')->name('userlogin');
         Route::view('/loginadmin','admin.login')->name('loginadmin');
+
 
         Route::view('/registeruser','home.register');
         Route::get('/logoutuser', [HomeController::class, 'logout'])->name('logoutuser');
         Route::post('/storecomment',[HomeController::class,'storecomment'])->name('storecomment');
         Route::post('/loginadmincheck',[HomeController::class,'loginadmincheck'])->name('loginadmincheck');
+        Route::post('/storeappointment',[HomeController::class,'storeappointment'])->name('storeappointment');
 
 
         // Route-> MyController->View
@@ -82,7 +86,7 @@
 
         });
             //**************ADMIN ROUTES**************
-        Route::middleware('admin')->prefix('user')->name('admin.')->group(function() {
+        Route::middleware('admin')->prefix('admin')->name('admin.')->group(function() {
             Route::get('/', [MyController::class,'index'])->name('index');
             //**************ADMIN GENERAL ROUTES**************
             Route::get('/setting', [MyController::class,'setting'])->name('setting');
@@ -121,6 +125,15 @@
 
             //**************ADMIN MSG ROUTES**************
             Route::prefix('/message')->name('message.')->controller(MessageController::class)->group(function() {
+                Route::get('/','index')->name('index');
+                Route::post('/update/{id}','update')->name('update');
+                Route::get('/destroy/{id}','delete')->name('destroy');
+                Route::get('/show/{id}', 'show')->name('show');
+
+            });
+
+            //**************ADMIN Appointments ROUTES**************
+            Route::prefix('/appointment')->name('appointment.')->controller(AppointmentController::class)->group(function() {
                 Route::get('/','index')->name('index');
                 Route::post('/update/{id}','update')->name('update');
                 Route::get('/destroy/{id}','delete')->name('destroy');

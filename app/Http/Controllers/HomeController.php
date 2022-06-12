@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
+use App\Models\Appointments;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Faq;
@@ -60,6 +62,7 @@ class HomeController extends Controller
             'setting'=>$setting
         ]);
     }
+
     public function faq()
     {
         $setting= setting::first();
@@ -82,6 +85,18 @@ class HomeController extends Controller
         $data->save();
 
         return redirect()->route('contactus')->with('info','Your message has been sent , Thank You.');
+    }
+    public function storeappointment(Request $request){
+        $data = new Appointment();
+        $data->user_id = Auth::user()->id;
+        $data->doctorname = $request->doctorname;
+        $data->date = $request->date;
+        $data->time = '00:00';
+        $data->note = $request->note;
+        $data->payment = $request->payment;
+        $data->policlinic_id = $request->policlinic_id;
+        $data->save();
+        return redirect()->route('home')->with('success','Your Appointment has been reserved! , Thank You.');
     }
 
     public function storecomment(Request $request)

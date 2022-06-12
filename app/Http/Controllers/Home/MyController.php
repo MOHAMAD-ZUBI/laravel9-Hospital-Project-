@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\AdminPanel\Home;
+namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use function redirect;
+use function view;
 
 class MyController extends Controller
 {

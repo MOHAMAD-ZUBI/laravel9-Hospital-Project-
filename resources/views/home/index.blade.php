@@ -132,55 +132,69 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <form>
                         <h4>
                             BOOK <span>APPOINTMENT</span>
                         </h4>
+
+                    @auth()
+                        @include('home.messages')
+                    <form action="{{route("storeappointment")}}" method="post">
+                        @csrf
                         <div class="form-row ">
                             <div class="form-group col-lg-4">
                                 <label for="inputPatientName">Patient Name </label>
-                                <input type="text" class="form-control" id="inputPatientName" placeholder="">
+                                <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}" placeholder="Name & Surname">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label for="inputDoctorName">Doctor's Name</label>
-                                <select name="" class="form-control wide" id="inputDoctorName">
-                                    <option value="Normal distribution ">Normal distribution </option>
-                                    <option value="Normal distribution ">Normal distribution </option>
-                                    <option value="Normal distribution ">Normal distribution </option>
-                                </select>
+                                <input type="text" class="form-control" name="doctorname"  placeholder="Doctor's Name">
                             </div>
                             <div class="form-group col-lg-4">
-                                <label for="inputDepartmentName">Department's Name</label>
-                                <select name="" class="form-control wide" id="inputDepartmentName">
-                                    <option value="Normal distribution ">Normal distribution </option>
-                                    <option value="Normal distribution ">Normal distribution </option>
-                                    <option value="Normal distribution ">Normal distribution </option>
+                                <label for="inputDepartmentName">Policlinic</label>
+                                <select name="policlinic_id" class="form-control wide" id="inputDepartmentName">
+                                    @foreach($policliniclist1 as $rs)
+                                    <option value="{{$rs->id}}">{{$rs->title}} </option>
+                                    @endforeach
                                 </select>
                             </div>
-                        </div>
-                        <div class="form-row ">
-                            <div class="form-group col-lg-4">
-                                <label for="inputPhone">Phone Number</label>
-                                <input type="number" class="form-control" id="inputPhone" placeholder="XXXXXXXXXX">
+                            <div class="form-group col-lg-2">
+                                <label for="inputDepartmentName">Payment</label>
+                                <select name="payment" class="form-control wide" id="inputDepartmentName">
+
+                                    <option>Yes</option>
+                                    <option>No</option>
+
+                                </select>
                             </div>
                             <div class="form-group col-lg-4">
                                 <label for="inputSymptoms">Symptoms</label>
-                                <input type="text" class="form-control" id="inputSymptoms" placeholder="">
+                                <input type="text" name="note" class="form-control" id="inputSymptoms" placeholder="">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label for="inputDate">Choose Date </label>
-                                <div class="input-group date" id="inputDate" data-date-format="mm-dd-yyyy">
-                                    <input type="text" class="form-control" readonly>
-                                    <span class="input-group-addon date_icon">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                  </span>
-                                </div>
+                                <input type="date" class="form-control" name="date"  placeholder="Date">
                             </div>
                         </div>
+
+
                         <div class="btn-box">
                             <button type="submit" class="btn ">Submit Now</button>
                         </div>
                     </form>
+                    @endauth
+                    @guest()
+                        <hr>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                            <h4>
+                                <a href="{{route('userlogin')}}">please login!</a>
+                            </h4>
+                                </div>
+                            </div>
+                        </div>
+
+                    @endguest
                 </div>
             </div>
         </div>
@@ -257,44 +271,6 @@
 
     <!-- end treatment section -->
 
-    <!-- team section -->
-
-    <section class="team_section layout_padding">
-        <div class="container">
-            <div class="heading_container heading_center">
-                <h2>
-                    Our <span>Policlinics</span>
-                </h2>
-            </div>
-
-            <div class="carousel-wrap ">
-
-                <div class="owl-carousel team_carousel">
-                    @foreach($sliderdata as $rs)
-                    <div class="item">
-
-                        <div class="box">
-                            <div class="img-box">
-                                <img src="{{Storage::url($rs->image)}}"/>
-                            </div>
-                            <div class="detail-box">
-                                <h5>
-                                    {{$rs->title}}
-                                </h5>
-                                <h6>
-                                    MBBS
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-        @endforeach
-                </div>
-            </div>
-
-    </section>
-
-
-    <!-- end team section -->
 
 
     <!-- client section -->
@@ -302,67 +278,40 @@
         <div class="container">
             <div class="heading_container">
                 <h2>
-                    <span>Testimonial</span>
+                    Our <span>Policlinics</span>
                 </h2>
             </div>
         </div>
         <div class="container px-0">
             <div id="customCarousel2" class="carousel  carousel-fade" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
+                    @php
+                        $count = 0;
+                    @endphp
+                    @foreach($policliniclist1 as $rs)
+                    <div class="carousel-item @if($count == 0) active @endif">
                         <div class="box">
                             <div class="client_info">
                                 <div class="client_name">
                                     <h5>
-                                        Morijorch
+                                        {{$rs->title}}
                                     </h5>
-                                    <h6>
-                                        Default model text
-                                    </h6>
+                                    <div class="img-box">
+                                        <img src="{{Storage::url($rs->image)}}" style="height: 200px"/>
+                                    </div>
+
                                 </div>
                                 <i class="fa fa-quote-left" aria-hidden="true"></i>
                             </div>
                             <p>
-                                editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various
+                                    {{$rs->description}}
                             </p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="box">
-                            <div class="client_info">
-                                <div class="client_name">
-                                    <h5>
-                                        Rochak
-                                    </h5>
-                                    <h6>
-                                        Default model text
-                                    </h6>
-                                </div>
-                                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                            </div>
-                            <p>
-                                Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="box">
-                            <div class="client_info">
-                                <div class="client_name">
-                                    <h5>
-                                        Brad Johns
-                                    </h5>
-                                    <h6>
-                                        Default model text
-                                    </h6>
-                                </div>
-                                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                            </div>
-                            <p>
-                                Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy, editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various
-                            </p>
-                        </div>
-                    </div>
+                        @php
+                            $count++;
+                        @endphp
+                    @endforeach
                 </div>
                 <div class="carousel_btn-box">
                     <a class="carousel-control-prev" href="#customCarousel2" role="button" data-slide="prev">
@@ -380,34 +329,39 @@
     <!-- end client section -->
 
     <!-- contact section -->
-    <section class="contact_section layout_padding-bottom">
+    <section class="contact_section layout_padding">
         <div class="container">
             <div class="heading_container">
                 <h2>
-                    Get In Touch
+                    Get In <span>Touch</span>
                 </h2>
             </div>
+            @include('home.messages')
             <div class="row">
                 <div class="col-md-7">
                     <div class="form_container">
-                        <form action="">
-                            <div>
-                                <input type="text" placeholder="Full Name" />
+                        <form action="{{route("storemessage")}}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <input class="input" type="text" name="name" placeholder="Name & Surname">
                             </div>
-                            <div>
-                                <input type="email" placeholder="Email" />
+                            <div class="form-group">
+                                <input class="input" type="tel" name="phone" placeholder="Phone Number">
                             </div>
-                            <div>
-                                <input type="text" placeholder="Phone Number" />
+                            <div class="form-group">
+                                <input class="input" type="text" name="email" placeholder="Email">
                             </div>
-                            <div>
-                                <input type="text" class="message-box" placeholder="Message" />
+                            <div class="form-group">
+                                <input class="input" type="text" name="subject" placeholder="Subject">
                             </div>
-                            <div class="btn_box">
-                                <button>
-                                    SEND
-                                </button>
+                            <div class="form-group">
+                                <input type="text" name="message" class="message-box" placeholder="Your Message">
                             </div>
+                            <div class="form-group">
+                                <input class="input" type="submit" value="Send Message">
+                            </div>
+
+
                         </form>
                     </div>
                 </div>

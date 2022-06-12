@@ -51,15 +51,6 @@
                                 <a class="nav-link" href="{{route('references')}}"> References</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="treatment.html">Treatment</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="doctor.html">Doctors</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="testimonial.html">Testimonial</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="{{route('contactus')}}">Contact Us</a>
                             </li>
                             <li class="nav-item">
@@ -96,7 +87,6 @@
                             </button>
                         </form>
                     </div>
-                </div>
             </nav>
         </div>
     </div>
