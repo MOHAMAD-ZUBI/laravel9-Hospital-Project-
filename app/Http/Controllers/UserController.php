@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -14,6 +17,20 @@ class UserController extends Controller
     public function index()
     {
         return view('home.user.index');
+    }
+    public function review(){
+
+        $comments=Comment::where('user_id','=',Auth::id())->get();
+        return view('home.user.comments',[
+            'comments'=>$comments,]);
+
+    }
+    public function appointment(){
+
+        $appointments=Appointment::where('user_id','=',Auth::id())->get();
+        return view('home.user.appointments',[
+            'appointments'=>$appointments,]);
+
     }
 
     /**
@@ -80,5 +97,21 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function deleterev($id)
+    {
+        //
+        $data= Comment::find($id);
+        $data->delete();
+        return redirect(route('userpanel.review'));
+
+    }
+    public function deleteappointment($id)
+    {
+        //
+        $data= Appointment::find($id);
+        $data->delete();
+        return redirect(route('userpanel.appointment'));
+
     }
 }

@@ -33,6 +33,7 @@
 
 
                     <div class="input-checkbox">
+                    @include('profile.show')
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 @extends('layouts.frontbase')
 
-@section('title','References | '.$setting->title)
+@section('title','About Us | '.$setting->title)
 @section('description',$setting->description)
 @section('keywords',$setting->keywords)
 @section('icon', Storage::url($setting->icon))
@@ -20,12 +20,11 @@
                     <div class="detail-box">
                         <div class="heading_container">
                             <h2>
-                                Our <span>References</span>
+                                About <span>Hospital</span>
                             </h2>
                         </div>
                         <p>
-                                {!! $setting->references !!}
-                            {{!!$setting->soceial}}
+                            {!! $setting->aboutus !!}
                         </p>
                         <a href="\">
                             Go Back
@@ -36,3 +35,4 @@
         </div>
     </section>
 @endsection
+

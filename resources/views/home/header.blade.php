@@ -72,7 +72,8 @@
                                 @endguest
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="{{route('userpanel.index')}}">Dashboard</a>
-                                    <a class="dropdown-item" href="dashboard.html">My Appointments</a>
+                                    <a class="dropdown-item" href="{{route('userpanel.review')}}">My Reviews</a>
+                                    <a class="dropdown-item" href="{{route('userpanel.appointment')}}">My Appointments</a>
                                     <a class="dropdown-item" href="/logoutuser">LogOut</a>
 
                                 </div>

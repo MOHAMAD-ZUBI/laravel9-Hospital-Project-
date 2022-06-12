@@ -82,6 +82,10 @@
             //**************USER ROUTES**************
         Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class)->group(function() {
             Route::get('/','index')->name('index');
+            Route::get('/review', 'review')->name('review');
+            Route::get('/appointment', 'appointment')->name('appointment');
+            Route::get('/deleterev/{id}','deleterev')->name('deleterev');
+            Route::get('/deleteappointment/{id}','deleteappointment')->name('deleteappointment');
 
 
         });
