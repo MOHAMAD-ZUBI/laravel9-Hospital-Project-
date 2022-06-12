@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         $page ='home';
-        $sliderdata=Policlinic::limit(4)->get();
+        $sliderdata=Category::limit(4)->get();
         $policliniclist1=Policlinic::limit(6)->get();
         $setting = Setting::first();
         return view('home.index',[
