@@ -7,6 +7,10 @@
 
 
     <div id="page-wrapper" >
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="{{route('admin.index')}}">home</a> </li>
+            <li class="breadcrumb-item active">User List</li>
+        </ol>
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">

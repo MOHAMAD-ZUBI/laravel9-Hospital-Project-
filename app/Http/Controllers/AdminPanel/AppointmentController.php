@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminPanel;
 
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
+use App\Models\Faq;
 use App\Models\Message;
 use Illuminate\Http\Request;
 
@@ -53,7 +54,7 @@ class AppointmentController extends Controller
     public function show($id)
     {
         $data = Appointment::find($id);
-        $data->status='Read';
+        $data->status='Accept';
         $data->save();
         return view('admin.appointment.show',[
             'data'=>$data
@@ -69,6 +70,10 @@ class AppointmentController extends Controller
     public function edit($id)
     {
         //
+        $data= Appointment::find($id);
+        return view('admin.appointment.edit', [
+            'data'=> $data
+        ]);
     }
 
     /**
@@ -83,8 +88,11 @@ class AppointmentController extends Controller
         //
         $data= Appointment::find($id);
         $data->note =$request->note;
+        $data->price = $request->price;
+        $data->date = $request->date;
+
         $data->save();
-        return redirect(route('admin.appointment.show',['id'=>$id]));
+        return redirect(route('admin.appointment.index'));
     }
 
     /**

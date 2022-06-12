@@ -222,7 +222,7 @@
                             </h2>
                         </div>
                         <p>
-                            {!! $setting->aboutus !!}
+                            We’ve served this richly diverse region as a community hospital for more than 60 years. And as the area has grown, so have we. But as Long Island doctors, nurses, and healthcare professionals, we’ve never outgrown our devotion to the health of the community we all call home.
                         </p>
                         <a href="/about">
                             Read More
@@ -249,7 +249,7 @@
                 </h2>
             </div>
             <div class="row">
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-8 col-lg-3">
                     @foreach($policliniclist1 as $rs)
                     <div class="box ">
 
@@ -383,14 +383,6 @@
                     <a href="">
                         <img src="{{asset('assets')}}/images/logo.png" alt="">
                     </a>
-                </div>
-                <div class="info_form">
-                    <form action="">
-                        <input type="email" placeholder="Your email">
-                        <button>
-                            Subscribe
-                        </button>
-                    </form>
                 </div>
             </div>
             <div class="info_bottom layout_padding2">

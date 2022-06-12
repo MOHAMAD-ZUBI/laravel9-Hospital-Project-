@@ -48,11 +48,7 @@
 
                                                     <tr>
                                                         <th>Price</th>
-                                                        <td>{{$data->Price}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>IP Number</th>
-                                                        <td>{{$data->ip}}</td>
+                                                        <td>{{$data->price}}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>status</th>
@@ -67,16 +63,8 @@
                                                         <td>{{$data->updated_at}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Admin Note : </th>
-                                                        <td>
-                                                            <form role="form" action="{{route('admin.appointment.update',['id'=>$data->id])}}" method="post" >
-                                                                @csrf
-                                                                <textarea class="form-control" id="note" name="note">{{$data->note}}</textarea>
-                                                                <button type="submit" class="btn btn-default">Update Note</button>
-                                                                <button type="reset" class="btn btn-primary">Reset </button>
-
-                                                            </form>
-                                                        </td>
+                                                        <th>USER NOTE</th>
+                                                        <td>{{$data->note}}</td>
                                                     </tr>
 
                                                 </table>

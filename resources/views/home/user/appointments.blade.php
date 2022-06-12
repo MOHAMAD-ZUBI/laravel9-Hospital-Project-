@@ -1,6 +1,6 @@
 @extends('layouts.frontbase')
 
-@section('title','hello')
+@section('title','My Appointments')
 
 
 
@@ -45,7 +45,7 @@
                                 <td>{{$rs->doctorname}}</td>
                                 <td>{{$rs->status}}</td>
                                 <td>{{$rs->note}}</td>
-                                <td><a href="{{route('userpanel.deleteappointment',['id'=>$rs->id])}}"<a onclick="return confirm('DELETING!! ARE YOU SURE??')" class="btn btn-danger ">Delete</a></td>
+                                <td><a href="{{route('userpanel.deleteappointment',['id'=>$rs->id])}}"<a onclick="return confirm('DELETING!! ARE YOU SURE??')" class="btn btn-danger ">Cancel</a></td>
 
                             </tr>
 

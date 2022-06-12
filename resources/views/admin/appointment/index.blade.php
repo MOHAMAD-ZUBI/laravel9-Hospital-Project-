@@ -7,6 +7,10 @@
 
 
     <div id="page-wrapper" >
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="{{route('admin.index')}}">home</a> </li>
+            <li class="breadcrumb-item active">Appointment List</li>
+        </ol>
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-2">
@@ -29,7 +33,8 @@
                                     <th>doctor</th>
                                     <th>Status</th>
                                     <th style="width: 110px">Show</th>
-                                    <th style="width: 110px">Delete</th>
+                                    <th style="width: 110px">Cancel</th>
+                                    <th style="width: 40px">Modify</th>
 
                                 </tr>
                                 </thead>
@@ -51,9 +56,11 @@
                                     </td>
                                     <td>
                                         <a href="{{route('admin.appointment.destroy',['id'=>$rs->id])}}"class="btn  btn-danger btn-sm"
-                                           onclick="return confirm('Deleting!! Are you sure?')">Delete</a></td>
+                                           onclick="return confirm('Deleting!! Are you sure?')">Cancel</a></td>
+                                    <td><a href="{{route('admin.appointment.edit',['id'=>$rs->id])}}" class="btn btn-info">Modify</a> </td>
 
                                 </tr>
+
 
                                 @endforeach
                                 </tbody>

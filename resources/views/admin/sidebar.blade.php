@@ -27,7 +27,7 @@
                     </lord-icon> Appointments <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/appointment">Active Appointments</a>
+                        <a href="{{route('admin.appointment.index')}}">Active Appointments</a>
                     </li>
 
                 </ul>
@@ -35,7 +35,7 @@
 
 
             <li class ="nav-item">
-                <a href="/admin/category" class="nav-link"><lord-icon
+                <a href="{{route('admin.category.index')}}" class="nav-link"><lord-icon
                         src="https://cdn.lordicon.com/jvucoldz.json"
                         trigger="loop"
                         colors="primary:#e4e4e4,secondary:#ee6d66"
@@ -43,7 +43,7 @@
                     </lord-icon>Categories</a>
             </li>
             <li class ="nav-item">
-                <a href="/admin/policlinic" class="nav-link">
+                <a href="{{route('admin.policlinic.index')}}" class="nav-link">
                     <lord-icon
                         src="https://cdn.lordicon.com/hdiorcun.json"
                         trigger="loop"
@@ -52,7 +52,7 @@
                     </lord-icon>Policlinics</a>
             </li>
             <li class ="nav-item">
-                <a href="/admin/comment" class="nav-link"><lord-icon
+                <a href="{{route('admin.comment.index')}}" class="nav-link"><lord-icon
                         src="https://cdn.lordicon.com/zpxybbhl.json"
                         trigger="loop"
                         colors="primary:#e4e4e4,secondary:#ee6d66"
@@ -60,7 +60,7 @@
                     </lord-icon>Comments</a>
             </li>
             <li class ="nav-item">
-                <a href="/admin/faq" class="nav-link"><lord-icon
+                <a href="{{route('admin.faq.index')}}" class="nav-link"><lord-icon
                         src="https://cdn.lordicon.com/tvyxmjyo.json"
                         trigger="loop"
                         colors="primary:#e4e4e4,secondary:#ee6d66"
@@ -76,7 +76,7 @@
                     </lord-icon>Messages</a>
             </li>
             <li class ="nav-item">
-                <a href="/admin/social" class="nav-link"><lord-icon
+                <a href="#" class="nav-link"><lord-icon
                         src="https://cdn.lordicon.com/udwhdpod.json"
                         trigger="loop"
                         colors="primary:#e4e4e4,secondary:#ee6d66"
@@ -84,7 +84,7 @@
                     </lord-icon>Social</a>
             </li>
             <li class ="nav-item">
-                <a href="/admin/user" class="nav-link"><lord-icon
+                <a href="{{route('admin.user.index')}}" class="nav-link"><lord-icon
                         src="https://cdn.lordicon.com/eszyyflr.json"
                         trigger="loop"
                         colors="primary:#e4e4e4,secondary:#ee6d66"
@@ -92,7 +92,7 @@
                     </lord-icon>Users</a>
             </li>
             <li class="nav-item">
-                <a href="/admin/setting" class="nav-link">
+                <a href="{{route('admin.setting')}}" class="nav-link">
                     <lord-icon
                         src="https://cdn.lordicon.com/sbiheqdr.json"
                         trigger="loop"

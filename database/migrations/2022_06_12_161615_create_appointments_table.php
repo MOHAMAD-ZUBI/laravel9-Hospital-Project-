@@ -25,7 +25,7 @@ class CreateAppointmentsTable extends Migration
             $table->string('ip')->nullable();
             $table->string('price')->nullable();
             $table->string('payment')->nullable();
-            $table->string('status',5)->nullable()->default('new');
+            $table->string('status',10)->nullable()->default('new');
         });
     }
 
