@@ -54,7 +54,6 @@ class AppointmentController extends Controller
     public function show($id)
     {
         $data = Appointment::find($id);
-        $data->status='Accept';
         $data->save();
         return view('admin.appointment.show',[
             'data'=>$data
@@ -90,6 +89,7 @@ class AppointmentController extends Controller
         $data->note =$request->note;
         $data->price = $request->price;
         $data->date = $request->date;
+        $data->status = $request->status;
 
         $data->save();
         return redirect(route('admin.appointment.index'));
